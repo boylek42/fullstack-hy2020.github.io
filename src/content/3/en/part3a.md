@@ -888,10 +888,12 @@ At the end of the function body, the _next_ function that was passed as a parame
 Middleware is used like this:
 
 ```js
+app.use(express.json())
+...
 app.use(requestLogger)
 ```
 
-Remember, middleware functions are called in the order that they're encountered by the JavaScript engine. Notice that _json-parser_ is listed before _requestLogger_ , because otherwise <i>request.body</i> will not be initialized when the logger is executed!
+Remember, middleware functions are called in the order that they're encountered by the JavaScript engine. In our case, _json-parser_ is listed before _requestLogger_ because otherwise <i>request.body</i> will not be initialized when the logger is executed!
 
 Middleware functions have to be used before routes when we want them to be executed by the route event handlers. Sometimes, we want to use middleware functions after routes. We do this when the middleware functions are only called if no route handler processes the HTTP request.
 
