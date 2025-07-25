@@ -403,36 +403,7 @@ export default [
 ]
 ```
 
-Our default configuration takes a bunch of predefined rules into use from:
-
-```js
-// ...
-
-export default [
-  js.configs.recommended,
-  // ...
-]
-```
-
-This includes a rule that warns about <em>console.log</em> commands which we don't want to use. Disabling a rule can be accomplished by defining its "value" as 0 or _off_ in the configuration file. Let's do this for the _no-console_ rule in the meantime.
-
-```js
-[
-  {
-    // ...
-    rules: {
-      // ...
-      eqeqeq: 'error',
-      'no-trailing-spaces': 'error',
-      'object-curly-spacing': ['error', 'always'],
-      'arrow-spacing': ['error', { before: true, after: true }],
-      'no-console': 'off', // highlight-line
-    },
-  },
-]
-```
-
-Disabling the no-console rule will allow us to use console.log statements without ESLint flagging them as issues. This can be particularly useful during development when you need to debug your code. Here's the complete configuration file with all the changes we have made so far:
+Here's the complete configuration file with all the changes we have made so far:
 
 ```js
 import globals from 'globals'
@@ -460,7 +431,6 @@ export default [
       'no-trailing-spaces': 'error',
       'object-curly-spacing': ['error', 'always'],
       'arrow-spacing': ['error', { before: true, after: true }],
-      'no-console': 'off',
     },
   },
   {
